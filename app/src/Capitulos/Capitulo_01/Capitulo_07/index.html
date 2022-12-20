@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Adicionar estilo</title>
+</head>
+
+<body>
+  <h1>Adicionar estilo</h1>
+
+  <p>Ao usar o React, você está criando HTML. O método de criação é diferente, mas o navegador ainda renderiza HTML, CSS e JavaScript.</p>
+
+  <p>Podemos até mesmo adicionar CSS aos componentes para aplicar estilo a eles. Para adicionar CSS a um componente, nós o referenciamos da mesma maneira que importamos qualquer outra dependência JavaScript.</p>
+
+  <h2>Adicionar CSS</h2>
+
+  <ol>
+    <li>Adicione um novo arquivo à pasta <i>src</i>. Nomeie-o como <i>index.css</i>.</li>
+    <li>Adicione o seguinte estilo ao arquivo:</li>
+    
+    <code>
+      css
+      
+      article {
+        margin-left: 10%;
+        margin-right: 10%;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+      }
+    </code>
+
+    Fique à vontade para personalizar esse estilo.
+  </ol>
+
+  <h2>Importar o CSS</h2>
+
+  <ol>
+    <li>Abra o arquivo <i>App.jsx</i>.</li>
+    <li>Na parte superior do arquivo, adicione as seguintes linhas de código:</li>
+
+    <code>
+      JavaScript
+      
+      import './index.css'
+    </code>
+
+    <li>Volte para o navegador e atualize-o. O site foi atualizado com o novo estilo.</li>
+  </ol>
+</body>
+
+</html>

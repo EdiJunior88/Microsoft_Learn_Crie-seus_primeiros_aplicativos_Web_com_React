@@ -1,5 +1,6 @@
 import React from "react";
 import ReceitaTitulo from "./ReceitaTitulo";
+import "./index.css"
 
 function App() {
   return (
