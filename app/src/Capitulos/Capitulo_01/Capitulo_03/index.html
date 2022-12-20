@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Criar um projeto inicial</title>
+</head>
+
+<body>
+  <h1>Criar um projeto inicial</h1>
+
+  <p>Usaremos um projeto inicial para podermos começar a escrever código rapidamente. O projeto inicial contém a estrutura mínima necessária para começar a desenvolver um aplicativo do React usando o Snowpack:</p>
+
+  <ul>
+    <li>Dois arquivos</li>
+    <li>Dois diretórios vazios</li>
+  </ul>
+
+  <h2>Clonar o repositório e instalar pacotes</h2>
+
+  <ul>
+    <li>Abra um terminal ou uma janela de comando e execute os seguintes comandos:</li>
+
+    <code>
+      Bash
+
+      # Linux or macOS
+      git clone https://github.com/MicrosoftDocs/mslearn-react
+      cd mslearn-react/code/0-starter
+
+      # Windows
+      git clone https://github.com/MicrosoftDocs/mslearn-react
+      cd mslearn-react\code\0-starter
+    </code>
+
+    <li>Instale os pacotes necessários usando o seguinte comando no mesmo terminal ou janela:</li>
+
+    <code>
+      Bash
+
+      npm install
+    </code>
+
+    <li>Abra o diretório no Visual Studio Code executando o seguinte comando:</li>
+
+    <code>
+      Bash
+
+      code .
+    </code>
+  </ul>
+
+  <h2>Explorar o projeto inicial</h2>
+
+  <p>Vamos explorar as pastas e os arquivos do projeto inicial:</p>
+
+  <ul>
+    <li><strong>package.json</strong> contém a lista de pacotes e scripts:</li>
+    <ul>
+      <li>Pacotes:</li>
+      <ul>
+        <li><strong>React</strong> para React</li>
+        <li><strong>ReactDOM</strong> para montar nosso aplicativo dentro do navegador</li>
+      </ul>
+
+      <li>Scripts:</li>
+      <ul>
+        <li><strong>dev</strong> para executar o servidor de desenvolvimento do Snowpack:</li>
+      </ul>
+
+      <ul>
+        <ul>
+          <li>Ele cria virtualmente todos os arquivos JavaScript e HTML.</li>
+          <li>Ele hospeda e reinicia automaticamente o servidor conforme os arquivos são alterados.</li>
+        </ul>
+
+        <li><strong>build</strong> para gerar arquivos de produção para implantação</li>
+      </ul>
+    </ul>
+
+    <li>O <strong>snowpack.config.json</strong> contém a configuração principal para <strong>Snowpack</strong>.</li>
+    <ul>
+      <li><strong>mount</strong> cria dois diretórios virtuais para o servidor Snowpack.</li>
+
+      <ul>
+        <li><strong>public</strong> contém todos os arquivos estáticos (como HTML, CSS e imagens). Ele é hospedado como /.</li>
+        <li><strong>src</strong> contém todos os arquivos JSX e os arquivos React associados. Ele é hospedado como dist.</li>
+      </ul>
+    </ul>
+      
+    <li><strong>public</strong> contém todos os arquivos estáticos.</li>
+    <li><strong>src</strong> contém todos os arquivos React.</li>
+  </ul>
+</body>
+
+</html>
