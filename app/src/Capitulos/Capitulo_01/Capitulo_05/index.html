@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Criar seu primeiro componente</title>
+</head>
+
+<body>
+  <h1>Criar seu primeiro componente</h1>
+
+  <p>O desenvolvimento do React baseia-se em <i>componentes</i>. Essas unidades autossuficientes são projetadas para reutilização e modularidade. Os projetos do React normalmente contêm muitos componentes.</p>
+
+  <p>Um componente pode ser uma função ou uma classe. A maioria dos desenvolvedores do React preferem criar componentes usando funções, portanto, vamos nos concentrar nesse estilo.</p>
+
+  <p>Geralmente, os aplicativos têm um componente principal, que costuma ser chamado de <mark>App</mark>. O <mark>App</mark> atua como a raiz do aplicativo. Vamos começar criando nosso componente <mark>App</mark>.</p>
+
+  <h2>Criar o componente</h2>
+
+  <ol>
+    <li>Abra o Visual Studio Code.</li>
+    <li>Crie um arquivo em <i>src</i>. Nomeie-o como <i>App.jsx</i>.</li>
+    <li>Adicione os códigos a seguir:</li>
+    <code>
+      JavaScript
+    
+      import React from 'react';
+
+      function App() {
+        return (
+        &ltarticle&gt
+          &lth1&gtRecipe Manager&lt/h1&gt
+        &lt/article&gt
+        )
+      }
+
+      export default App;
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p>Começamos o arquivo <i>App.jsx</i> importando <mark>React</mark> para podermos usar a sintaxe JSX. Em seguida, criamos uma função chamada <mark>App</mark>, da mesma forma como faríamos com qualquer outra função em JavaScript. Por fim, exportamos a função usando a sintaxe JavaScript padrão. O núcleo do nosso componente está contido na instrução <mark>return</mark>.</p>
+
+  <p>Observe que estamos usando HTML (tecnicamente, XML) incorporado em JavaScript. Essa funcionalidade mostra a potência do JSX. Podemos usar a lógica e a potência do JavaScript para criar unidades de trabalho (componentes) autossuficientes.</p>
+
+  <p>O HTML retornado pela função (ou componente) é exibido na página. O título contém o texto <strong>Gerenciador de Receita</strong>.</p>
+
+  <div>
+    <p>Observação</p>
+
+    <p>O elemento <mark>h1</mark> é aninhado dentro de um elemento HTML 5 <mark>article</mark>. Como o JSX usa XML, devemos ter um elemento raiz. O elemento <mark>article</mark> é a raiz desse componente. Essa estrutura nos permite adicionar HTML e outros componentes React à medida que nosso aplicativo cresce.</p>
+  </div>
+
+  <h2>Atualizar o aplicativo para usar o componente principal</h2>
+
+  <p>Vamos atualizar nosso aplicativo para usar o novo componente.</p>
+
+  <ol>
+    <li>Abra index.jsx.</li>
+    <li>Após a linha que exibe <mark>import ReactDOM from 'react-dom';</mark> (deve ser a linha 3), adicione o seguinte código:</li>
+
+    <code>
+      JavaScript
+      
+      import App from './App';
+    </code>
+
+    <li>Localize o código que mostra <mark>&lth1&gtHello, world!&lt/h1&gt</mark>. Substitua essa mensagem inicial por uma chamada para o componente <mark>App</mark>:</li>
+
+    <code>
+      jsx
+      
+      &ltApp /&gt
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p>Aqui está o conteúdo completo do <i>index.jsx</i> agora:</p>
+
+  <code>
+    jsx
+    
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import App from './App';
+
+    ReactDOM.render(
+      &ltApp /&gt,
+      document.getElementById('app')
+    );
+  </code>
+
+  <p>A instrução <mark>import</mark> importa o componente usando a mesma sintaxe que usaremos para qualquer outro módulo. Agora podemos usar o componente como se fosse HTML.</p>
+
+  <div>
+    <p>Observação</p>
+    
+    <p>Como o JSX usa a sintaxe XML, devemos fechar a marca <mark>App</mark>. Podemos fazer isso usando a sintaxe <mark>&ltApp&gt&lt/App&gt</mark> de forma longa ou a abreviação de “fechamento autônomo" <mark>&ltApp /&gt</mark>. Ambas as opções funcionam da mesma forma, mas a maioria dos desenvolvedores usa a opção abreviada.</p>
+  </div>
+
+  <h2>Confira os resultados</h2>
+
+  <p>Salve todos os arquivos. O navegador é atualizado automaticamente com os resultados.</p>
+
+  <img src="../../../imagens/capitulo-05.png" alt="">
+</body>
+
+</html>

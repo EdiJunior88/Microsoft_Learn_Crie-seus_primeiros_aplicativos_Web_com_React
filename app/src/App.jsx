@@ -1,7 +1,11 @@
 import React from "react";
 
 function App() {
-  return <h1>Olá, Mundo!</h1>;
+  return (
+    <article>
+      <h1>Gerenciador de Receitas</h1>
+    </article>
+  );
 }
 
 export default App;
