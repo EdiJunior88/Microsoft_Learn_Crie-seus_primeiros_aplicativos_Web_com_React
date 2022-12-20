@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <h1>Hello, world!</h1>
+
+  <p>A maneira mais comum de iniciar qualquer curso de programação é exibir o texto "Olá, mundo!". Continuando com essa história, vamos usar o React para exibir o texto famoso.</p>
+
+  <p>Criaremos dois itens para a base do nosso projeto:</p>
+
+  <ul>
+    <li>O arquivo <i>index.html</i> hospeda o aplicativo do React.</li>
+    <li>O arquivo <i>index.jsx</i> monta nosso aplicativo.</li>
+  </ul>
+
+  <h2>Criar o host do aplicativo</h2>
+
+  <ol>
+    <li>No Visual Studio Code, crie um arquivo na pasta <i>public</i>. Nomeie-o como <i>index.html</i>.</li>
+    <li>Adicione o seguinte código HTML:</li>
+
+    <code>
+      HTML
+      
+      &lt!DOCTYPE html&gt
+      &lthtml lang="en"&gt
+      &lthead&gt
+        &lttitle&gtRecipes&lt/title&gt
+      &lt/head&gt
+      &ltbody&gt
+        &ltdiv id="app"&gt&lt/div&gt
+        &ltscript type="module" src="/dist/index.js"&gt&lt/script&gt
+      &lt/body&gt
+      &lt/html&gt
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p>Observe duas linhas importantes no HTML:</p>
+
+  <ul>
+    <lu><mark>&ltdiv id="app"&gt&lt/div&gt</mark></lu>
+    <ul>
+      <li>Essa linha cria o elemento HTML que hospeda o aplicativo do React.</li>
+      <li>Chamamos esse elemento por sua ID para renderizar o aplicativo.</li>
+    </ul>
+    <li><mark>&ltscript type="module" src="/dist/index.js"&gt&lt/script&gt</mark></li>
+    <ul>
+      <li>Essa linha carrega o JavaScript.</li>
+    </ul>
+  </ul>
+
+  <div>
+    <p>Observação</p>
+
+    <p>O nome do arquivo que estamos importando é <i>index.js</i>. Não usamos <i>index.jsx</i>, porque os navegadores não podem renderizar arquivos JSX. Sempre precisamos de um empacotador (como o Snowpack) para gerar JavaScript. Referenciamos o JavaScript em vez do JSX.</p>
+
+    <p>O atributo <mark>type="module"</mark> nos permite usar instruções <mark>import</mark> nos arquivos JavaScript (ou JSX). Essa funcionalidade é relativamente nova para navegadores. Ela nos ajuda a importar os pacotes e componentes necessários.</p>
+  </div>
+
+  <h2>Criar o ponto de entrada para o aplicativo do React</h2>
+
+  <p>Precisamos de código para renderizar o aplicativo do React dentro do HTML. Tradicionalmente, o arquivo index.jsx é usado para renderizar o aplicativo.</p>
+
+  <ol>
+    <li>Crie um arquivo dentro da pasta src. Nomeie-o como index.jsx.</li>
+    <li>Adicione os códigos a seguir:</li>
+
+    <code>
+      jsx
+      import React from 'react';
+      import ReactDOM from 'react-dom';
+
+      ReactDOM.render(
+        &lth1&gtHello, world!&lt/h1&gt,
+        document.getElementById('app')
+      );
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p>O arquivo <i>index.jsx</i> começa importando duas bibliotecas importantes. A primeira, <mark>React</mark>, permite usar o JSX. Ela será importada em todo componente ou arquivo JSX que criarmos. A segunda biblioteca, <mark>ReactDOM</mark>, renderiza o aplicativo dentro do HTML.</p>
+
+  <p>O <mark>render</mark> utiliza dois parâmetros:</p>
+
+  <ul>
+    <li>O HTML que desejamos exibir. Nesse caso, o HTML é um título <mark>h1</mark>.</li>
+    <li>O elemento HTML que queremos usar para exibir o HTML. Usaremos o elemento que tem uma ID de <mark>app</mark>. Criamos esse elemento anteriormente.</li>
+  </ul>
+
+  <p>A capacidade de usar HTML dentro da codificação JavaScript faz parte da potência do JSX.</p>
+
+  <h2>Verificar a página</h2>
+
+  <p>Agora que criamos o código, vamos ver nosso site em ação.</p>
+
+  <ol>
+    <li>No Visual Studio Code, abra o terminal integrado selecionando <strong>Exibir</strong>><strong>Terminal</strong> ou selecionando <strong>Ctrl</strong>+. Em um Mac, selecione <strong>Cmd</strong>+.</li>
+    <li>Use o seguinte comando para iniciar o servidor de desenvolvimento do Snowpack:</li>
+
+    <code>
+      Bash
+      
+      npm start
+    </code>
+  </ol>
+
+  <p>O navegador padrão deve abrir e exibir a página automaticamente. Se a página não aparecer de forma automática, abra o navegador e vá para <a href="http://localhost:8080">http://localhost:8080</a>. Agora você deverá ver sua página.</p>
+
+  <img src="../../../imagens/capitulo-04.png" alt="">
+
+  <h2>Explorar o código gerado</h2>
+
+  <p>Nosso código JSX é convertido no HTML e no JavaScript apropriados para exibição no navegador. Abra o arquivo JavaScript gerado pelo Snowpack: http://localhost:8080/dist/index.js. Você verá o seguinte código:</p>
+
+  <code>
+    JavaScript
+
+    import React from "../web_modules/react.js";
+    import ReactDOM from "../web_modules/react-dom.js";
+    ReactDOM.render(/* @__PURE__ */ React.createElement("h1", null, "Hello, world!"), document.getElementById("app"));
+  </code>
+
+  <p>Concentre-se na linha de código que gera o elemento <mark>h1</mark> e coloca o texto dentro dele:</p>
+
+  <code>
+    JavaScript
+
+    React.createElement("h1", null, "Hello, world!")
+  </code>
+
+  O uso desse código é semelhante ao uso de <mark>document.createElement</mark> com o JavaScript vanilla. As ferramentas fornecidas pelo Snowpack e outros empacotadores permitem usar o JSX para gerar automaticamente o código apropriado amigável para o navegador.
+</body>
+
+</html>
