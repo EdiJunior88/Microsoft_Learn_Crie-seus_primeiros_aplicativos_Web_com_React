@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Criar um projeto do React do zero</title>
+</head>
+
+<body>
+  <h1>Criar um projeto do React do zero</h1>
+
+  <p>Neste módulo, usamos um projeto inicial para começar a trabalhar rapidamente. Com essa configuração, foi possível focar no React e em algumas das novas sintaxes. Fique à vontade para usar o projeto inicial em seu trabalho.</p>
+
+  <p>Você pode querer criar um projeto do zero. Para começar em uma pasta vazia, siga as etapas desta unidade. As etapas usam o Snowpack, exatamente como no projeto inicial.</p>
+
+  <p>Esta unidade é opcional. Se você não precisa criar seu próprio projeto, prossiga para a próxima unidade.</p>
+
+  <h2>Entender a estrutura do projeto</h2>
+
+  <p>Nossa configuração principal tem duas pastas principais que armazenam código:</p>
+
+  <ul>
+    <li><strong>público</strong></li>
+    <ul>
+      <li>Contém qualquer HTML, CSS, imagem ou outros arquivos estáticos</li>
+      <li>Armazena os arquivos <i>index.html</i> e <i>index.css</i></li>
+    </ul>
+    <li><strong>src</strong></li>
+    <ul>
+      <li>Contém todos os arquivos que precisam ser renderizados</li>
+      <li>Armazena todos os arquivos <i>.jsx</i></li>
+    </ul>
+  </ul>
+
+  <p>Também criaremos dois arquivos para configurar o aplicativo:</p>
+
+  <ul>
+    <li><strong>package.json</strong>: contém a lista de pacotes e scripts para o aplicativo</li>
+    <li><strong>snowpack.config.js</strong>: contém opções de configuração para o Snowpack</li>
+  </ul>
+
+  <p>Precisamos de três pacotes principais para nosso aplicativo:</p>
+
+  <ul>
+    <li><strong>Snowpack</strong>: usado para renderizar JSX para HTML e JavaScript</li>
+    <li><strong>React</strong>: usado para criar os componentes</li>
+    <li><strong>React-DOM</strong>: usado para montar o aplicativo</li>
+  </ul>
+
+  <h2>Criar a estrutura inicial</h2>
+
+  <p>Em um diretório vazio, comece instalando os componentes necessários usando o npm. Em seguida, configure o Snowpack e adicione os scripts ao arquivo <i>package.json</i>.</p>
+
+  <ol>
+    <li>Abra um terminal ou uma janela de comando. Em seguida, execute estes comandos para criar o diretório e o arquivo <i>package.json</i> para o npm. No Mac ou no Linux, use <mark>mkdir</mark> e, no Windows, use <mark>md</mark> para criar um diretório.</li>
+
+    <code>
+      Bash
+    
+      # Windows
+      md react-recipes && cd react-recipes
+      md src
+      md public
+      touch package.json
+      echo "{}" &gt package.json
+
+      # Linux or macOS
+      mkdir react-recipes && cd react-recipes
+      mkdir src
+      mkdir public
+      touch package.json
+      echo "{}" &gt package.json
+    </code>
+
+    <li>Execute o código a seguir no mesmo terminal ou janela de comando.</li>
+
+    <code>
+      Bash
+    
+      npm install --save-dev snowpack
+      npm install react react-dom
+    </code>
+
+    <div>
+      <p>Observação</p>
+
+      <p>O Snowpack é uma <i>dependência</i> de <i>desenvolvimento</i>. Ou seja, ele não é necessário para a produção, pois ele gera os arquivos JavaScript e HTML requeridos durante o processo de compilação.</p>
+    </div>
+
+    <li>Abra o diretório no Visual Studio Code executando o comando a seguir.</li>
+    <code>
+      Bash
+    
+      code .
+    </code>
+  </ol>
+
+  <h2>Configurar o Snowpack</h2>
+
+  <p>Uma das vantagens de uma ferramenta como o Snowpack é ser quase totalmente autoconfigurável. No entanto, precisamos indicar a estrutura de pastas do código. Para indicar a estrutura de pastas, definimos as opções no arquivo <i>snowpack.config.json</i>.</p>
+
+  <ol>
+    <li>No Visual Studio Code, crie um arquivo selecionando <strong>Arquivo</strong>><strong>Novo Arquivo</strong>.</li>
+    <li>Nomeie o arquivo como <i>snowpack.config.json</i>.</li>
+    <li>No arquivo novo, adicione o código a seguir.</li>
+
+    <code>
+      JavaScript
+
+      module.exports = {
+        mount: {
+          'public': '/',
+          'src': '/dist'
+          }
+      }
+    </code>
+  </ol>
+
+  <p>Esse código diz ao Snowpack para usar a pasta <i>public</i> como a raiz do aplicativo. Ele também define o diretório <i>src</i> como o local virtual para os arquivos JavaScript e arquivos HTML que ele gerará.</p>
+
+  <h2>Criar os scripts do npm</h2>
+
+  <p>Para dar suporte a nosso trabalho de desenvolvimento, usaremos dois scripts com o Snowpack. O primeiro script inicia o servidor de desenvolvimento. Essa ação atualiza automaticamente a página quando modificamos o aplicativo. O segundo script é usado quando estamos prontos para criar todos os nossos arquivos para implantação.</p>
+
+  <ol>
+    <li>No Visual Studio Code, abra o arquivo <i>package.json</i>.</li>
+    <li>Na parte inferior do arquivo, acima da última chave (<mark>}</mark>), adicione o código a seguir. Este código cria os scripts de início e de compilação.</li>
+
+    <code>
+      JSON
+
+      {
+        "scripts": {
+          "start": "snowpack dev",
+          "build": "snowpack build"
+        }
+      }
+    </code>
+
+    <p>O arquivo <i>inteiro</i> deve ser semelhante ao código a seguir.</p>
+
+    <code>
+      JSON
+
+      {
+        "devDependencies": {
+          "snowpack": "^2.18.5"
+      },
+        "dependencies": {
+          "react": "^17.0.1",
+          "react-dom": "^17.0.1"
+        },
+        "scripts": {
+          "start": "snowpack dev",
+          "build": "snowpack build"
+        }
+      }
+    </code>
+
+    <li>Salve todos os arquivos selecionando <strong>Arquivo</strong>><strong>Salvar tudo</strong>.</li>
+  </ol>
+
+  <p>Agora você configurou seu projeto inicial. Você pode adicionar <i>index.html</i>, <i>App.jsx</i> e outros arquivos da mesma forma que fez nas unidades anteriores.</p>
+</body>
+
+</html>
