@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Exibir dados dinâmicos</title>
+</head>
+
+<body>
+  <h1>Exibir dados dinâmicos</h1>
+
+  <p>Os componentes permitem dividir um aplicativo em partes lógicas. Nesta unidade, exploraremos essa funcionalidade criando um componente para o título de uma receita. Vamos criar componentes e importá-los para <mark>App</mark>. Também exploraremos como exibir dados de forma dinâmica.</p>
+
+  <h2>Exibir dados dinâmicos</h2>
+
+  <p>Para exibir dados dinâmicos dentro de um componente, use a sintaxe <mark>{ }</mark>, às vezes chamada de handlebars. Esse estilo de sintaxe é relativamente comum em ferramentas de modelagem de HTML. Use esses handlebars para mudar efetivamente para o modo JavaScript e executar quase qualquer JavaScript válido.</p>
+
+  <p>Por exemplo, para exibir a hora atual, você pode usar o seguinte código:</p>
+
+  <code>
+    JavaScript
+    
+    &ltdiv&gt{ Date.now() }&lt/div&gt
+  </code>
+
+  <h2>Criar um componente RecipeTitle</h2>
+
+  <p>Em nosso exemplo, criaremos um componente para o título de uma receita. Vamos usar uma variável JavaScript para o título para mostrar como o React pode exibir dados dinâmicos. As futuras unidades mostrarão como trabalhar com dados mais complexos.</p>
+
+  <ol>
+    <li>Crie um arquivo dentro da pasta <i>src</i>. Nomeie-o como <i>RecipeTitle.jsx</i>.</li>
+    <li>Adicione o seguinte código a <i>RecipeTitle.jsx</i>:</li>
+
+    <code>
+      jsx
+      
+      import React from 'react';
+     
+      function RecipeTitle() {
+        const title = 'Mashed potatoes';
+        return (
+          &lth2&gt{ title }&lt/h2&gt
+          )
+      };
+
+      export default RecipeTitle;
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p>Observe que criamos uma constante chamada <mark>title</mark>. Em seguida, usamos a sintaxe handlebar <mark>{ }</mark> para informar ao React que queremos exibir o valor de <mark>title</mark> dentro do elemento <mark>&lth2&gt</mark>. Esse recurso do JSX nos permite combinar JavaScript e HTML.</p>
+
+  <h2>Usar o componente RecipeTitle</h2>
+
+  <p>Vamos exibir <mark>RecipeTitle</mark> em nosso aplicativo adicionando-o a <mark>App</mark>.</p>
+
+  <ol>
+    <li>Abra src/App.jsx.</li>
+    <li>Abaixo da linha que exibe <mark>import React from 'react';</mark> (deve ser a linha 2), adicione o seguinte código:</li>
+
+    <code>
+      JavaScript
+
+      import RecipeTitle from './RecipeTitle'
+    </code>
+
+    <li>Use <mark>RecipeTitle</mark> como um elemento HTML adicionando o seguinte código abaixo da sintaxe que mostra <mark>&lth1&gtRecipe Manager&lt/h1&gt</mark> :</li>
+
+    <code>
+      jsx
+
+      &ltRecipeTitle /&gt
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p>Aqui está o conteúdo completo do arquivo <i>src/App.jsx</i> agora:</p>
+
+  <code>
+    jsx
+
+    import React from 'react';
+    import RecipeTitle from './RecipeTitle'
+
+    function App() {
+      return (
+        &ltarticle&gt
+          &lth1&gtRecipe Manager&lt/h1&gt
+          &ltRecipeTitle /&gt
+        &lt/article&gt
+      )
+    }
+
+    export default App;
+  </code>
+
+  <p>Praticamente da mesma forma que usamos <mark>&ltApp /&gt</mark> como um elemento HTML, podemos usar <mark>RecipeTitle</mark>. Esse exemplo mostra a essência da criação de aplicativos do React: você cria e usa componentes para compilar seu aplicativo.</p>
+
+  <h2>Confira os resultados</h2>
+
+  <p>Salve todos os arquivos. O navegador deve ser atualizado automaticamente e exibir a página atualizada. O título <strong>Purê de batata</strong> é exibido na parte superior da página.</p>
+
+  <img src="../../../imagens/capitulo-06.png" alt="">
+</body>
+
+</html>
