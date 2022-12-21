@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Introdução às props</title>
+</head>
+
+<body>
+  <h1>Introdução às props</h1>
+
+  <p>Os componentes React são desenvolvidos para serem unidades reutilizáveis. Para habilitar a reutilização, os componentes permitem que os dados sejam passados para eles por meio de propriedades ou <mark>props</mark>.</p>
+
+  <p>As <mark>props</mark> são valores somente leitura disponíveis para uma única instância de um componente. Elas podem ser definidas programaticamente ou com a mesma sintaxe que você usa ao configurar atributos para elementos HTML. Diferentemente do HTML normal, as <mark>props</mark> não são limitadas a cadeias de caracteres ou valores primitivos; elas podem ser matrizes ou objetos complexos. As <mark>props</mark> estão disponíveis como uma propriedade de <mark>this</mark> dentro de um componente. <mark>props</mark> podem conter quantas propriedades forem necessárias para o componente e são capazes de armazenar objetos ou qualquer outro tipo de dados.</p>
+
+  <h2>Cenário</h2>
+
+  <p>Para tornar os componentes reutilizáveis, você normalmente passa os dados a serem exibidos como props. Aqui, você criará um componente chamado <mark>RecipeTitle</mark> para exibir o título da receita, que será passado como uma propriedade.</p>
+
+  <h2>Criar o componente</h2>
+
+  <ol>
+    <li>Abra a pasta <strong>inicial</strong> no Visual Studio Code, conforme destacado na visão geral.</li>
+    <li>No Visual Studio Code, abra <strong>src/RecipeTitle.jsx</strong>.</li>
+    <li>Adicione o seguinte código antes da linha <mark>// TODO: Create RecipeTitle component</mark>:</li>
+
+    <code>
+      JavaScript
+      
+      // TODO: Create RecipeTitle component
+      function RecipeTitle(props) {
+        return (
+          &ltsection&gt
+            &lth2&gt{ props.title }&lt/h2&gt
+          &lt/section&gt
+        )
+      };
+
+      export default RecipeTitle;
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p><mark>RecipeTitle</mark> é semelhante a um componente React de base, com duas atualizações principais.</p>
+
+  <p>Primeiro, ele aceita um parâmetro chamado <mark>props</mark>. Isso conterá automaticamente todos os atributos ou propriedades passados para o componente quando ele for usado.</p>
+
+  <p>Em segundo lugar, você pode usar os valores contidos em <mark>props</mark> como faria com qualquer parâmetro normal. Você está procurando um valor chamado <mark>title</mark>, que é exibido dentro de um elemento <mark>h2</mark>.</p>
+
+  <h2>Usar o componente</h2>
+
+  <p>Agora, vamos atualizar <strong>App.jsx</strong> para usar o novo componente <mark>RecipeTitle</mark> com a propriedade <mark>title</mark>.</p>
+
+  <ol>
+    <li>Abra <strong>App.jsx</strong></li>
+    <li>Adicione o seguinte código na linha em que está escrito <mark>TODO: Add import for RecipeTitle</mark>, a fim de importar o componente <mark>RecipeTitle</mark> recém-criado:</li>
+
+    <code>
+      JavaScript
+      
+      // TODO: Add import for RecipeTitle
+      import RecipeTitle from './RecipeTitle'
+    </code>
+
+    <li>Adicione o seguinte código debaixo da linha <mark>TODO: Add recipe object</mark> para criar um objeto para nossa receita:</li>
+
+    <code>
+      JavaScript
+      
+      // TODO: Add recipe object
+      const recipe = {
+        title: 'Mashed potatoes',
+        feedback: {
+          rating: 4.8,
+          reviews: 20
+      },
+      ingredients: [
+        { name: '3 potatoes, cut into 1/2" pieces', prepared: false },
+        { name: '4 Tbsp butter', prepared: false },
+        { name: '1/8 cup heavy cream', prepared: false },
+        { name: 'Salt', prepared: true },
+        { name: 'Pepper', prepared: true },
+        ],
+      };
+    </code>
+
+    <div>
+      <p>Observação</p>
+
+      <p>No decorrer dos exercícios deste módulo, você usará o objeto <mark>recipe</mark> inteiro. Por enquanto, seu foco está em <mark>title</mark>.</p>
+    </div>
+
+    <li>Adicione o seguinte código debaixo da linha <mark>TODO: Add RecipeTitle component</mark>:</li>
+
+    <code>
+      jsx
+      
+      {/* TODO: Add RecipeTitle component */}
+      &ltRecipeTitle title={ recipe.title } /&gt
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p>Comece criando um objeto para representar a receita que você deseja exibir e adicione uma propriedade <mark>title</mark> a ele. Em seguida, use o componente <mark>RecipeTitle</mark> da mesma maneira que usaria um elemento HTML ou qualquer outro componente React. A principal diferença é que você define o atributo <mark>title</mark> como o valor de <mark>recipe.title</mark>. Usando handlebars ( <mark>{ }</mark> ), você é capaz de ler o valor dinamicamente.</p>
+
+  <div>
+    <p>Observação</p>
+
+    <p>Se o valor que deseja usar para <mark>title</mark> for um literal de cadeia de caracteres, você poderá definir a propriedade usando a sintaxe <mark>title='Recipe title</mark>.</p>
+  </div>
+
+  <h2>Exibir a página</h2>
+
+  <ol>
+    <li>Salve todos os arquivos.</li>
+    <li>Retorne ao seu navegador e atualize a página. Agora você deve ver o título <strong>Purê de batata</strong> exibido na página.</li>
+  </ol>
+</body>
+
+</html>

@@ -1,9 +1,12 @@
 import React from "react";
 
-function ReceitaTitulo() {
-  const titulo = "Purê de Batatas";
-
-  return <h2>{titulo}</h2>;
+//TODO: Criar componente ReceitaTitulo
+function ReceitaTitulo(props) {
+  return (
+    <section>
+      <h2>{props.titulo}</h2>
+    </section>
+  );
 }
 
 export default ReceitaTitulo;
