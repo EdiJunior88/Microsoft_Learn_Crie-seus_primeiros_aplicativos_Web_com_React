@@ -9,8 +9,8 @@ function App() {
   const objeto = {
     titulo: "Purê de batatas",
     feedback: {
-      avaliacao: 4.8,
-      reviews: 20,
+      nota: 4.8,
+      avaliacao: 20,
     },
 
     ingredientes: [
@@ -26,7 +26,7 @@ function App() {
     <article>
       <h1>Gerenciador de Receitas</h1>
       {/* TODO: Adicionar componente ReceitaTitulo */}
-      <ReceitaTitulo titulo={objeto.titulo} />
+      <ReceitaTitulo titulo={objeto.titulo} feedback={objeto.feedback} />
     </article>
   );
 }

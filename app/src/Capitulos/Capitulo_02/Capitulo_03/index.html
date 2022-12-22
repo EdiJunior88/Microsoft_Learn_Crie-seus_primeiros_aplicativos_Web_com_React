@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Usar tipos de dados complexos como props</title>
+</head>
+
+<body>
+  <h1>Usar tipos de dados complexos como props</h1>
+
+  <p>O componente <mark>props</mark> não é limitado a cadeias de caracteres, mas pode usar objetos JavaScript. Você pode usar isso para criar componentes mais robustos.</p>
+
+  <h2>Cenário</h2>
+
+  <p>Você deseja atualizar <mark>RecipeTitle</mark> para exibir os comentários da receita. Se a classificação média for igual ou inferior a 3,5, você exibirá a classificação como vermelho. Se for maior que 3,5, você exibirá a classificação como verde. Use o operador ternário e as classes CSS para ajudar a gerenciar a exibição.</p>
+
+  <h2>Criar o CSS</h2>
+
+  <p>Ao importar o CSS para um componente individual, você pode evitar conflitos de nomes e outros problemas que geralmente surgem com o CSS. Aqui, comece criando um arquivo .css para <mark>RecipeTitle</mark>.</p>
+
+  <ol>
+    <li>Adicione um novo arquivo à pasta src chamada <strong>RecipeTitle</strong>.css</li>
+    <li>Adicione o seguinte CSS a <strong>src/RecipeTitle.css</strong>:</li>
+
+    <code>
+      css
+
+      .red {
+        color: red;
+      }
+
+      .green {
+        color: green;
+      }
+    </code>
+  </ol>
+
+  <h2>Atualizar RecipeTitle</h2>
+
+  <p>Agora, atualize RecipeTitle para importar o CSS e exibir os valores.</p>
+
+  <ol>
+    <li>Abra src/RecipeTitle.jsx</li>
+    <li>Na parte superior do arquivo, adicione as seguintes linhas de código:</li>
+
+    <code>
+      JavaScript
+
+      import './RecipeTitle.css';
+    </code>
+
+    <li>Abaixo da linha <mark>&lth2&gt{ props.title }&lt/h2&gt</mark>, adicione o seguinte código:</li>
+
+    <code>
+      jsx
+
+      &lth3 className={ props.feedback.rating &lt=3.5 ? 'red' : 'green' }&gt
+        { props.feedback.rating } from { props.feedback.reviews } reviews
+      &lt/h3&gt
+    </code>
+  </ol>
+
+  <h2>Explore o código</h2>
+
+  <p>Você começou importando o arquivo CSS criado. Adicionou um novo elemento <mark>h3</mark> para exibir o <mark>feedback</mark>. Usou o operador ternário para definir a classe com base em <mark>rating</mark>.</p>
+
+  <p>Todo o conteúdo de ReactTitle.jsx agora deve ser:</p>
+
+  <code>
+    jsx
+
+    import './RecipeTitle.css';
+    import React from 'react';
+
+    // TODO: Create RecipeTitle component
+    function RecipeTitle(props) {
+      return (
+      &ltsection&gt
+        &lth2&gt{ props.title }&lt/h2&gt
+        &lth3 className={ props.feedback.rating &lt=3.5 ? 'red' : 'green' }&gt
+          { props.feedback.rating } from { props.feedback.reviews } reviews
+        &lt/h3&gt
+      &lt/section&gt
+      )
+    };
+
+    export default RecipeTitle;
+  </code>
+
+  <h2>Atualizar componente App para passar classificações</h2>
+
+  <p>Atualize <mark>RecipeTitle</mark> para definir o atributo <mark>feedback</mark>.</p>
+
+  <ol>
+    <li>Abra src/App.jsx.</li>
+    <li>Modifique o elemento <mark>RecipeTitle</mark> existente para adicionar o atributo <mark>feedback</mark>:</li>
+
+    <code>
+      jsx
+
+      &ltRecipeTitle title={ recipe.title } feedback={ recipe.feedback } /&gt
+    </code>
+  </ol>
+
+  <h2>Confira os resultados</h2>
+
+  <p>Salve todos os arquivos. O navegador deve ser atualizado automaticamente com a exibição atualizada.</p>
+
+  <img src="../../../imagens/capitulo-02-04.png" alt="">
+</body>
+
+</html>
