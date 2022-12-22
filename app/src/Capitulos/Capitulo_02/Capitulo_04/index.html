@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Usar map para exibir dados dentro de uma matriz</title>
+</head>
+
+<body>
+  <h1>Usar map para exibir dados dentro de uma matriz</h1>
+
+  <p>Você trabalhará muitas vezes com coleções de dados armazenados em uma matriz. Embora trabalhar com os dados de matriz seja semelhante a trabalhar com qualquer outro objeto, você precisa da capacidade de executar um loop nos dados e exibi-los para o usuário. Isso é feito no JSX usando código JavaScript. Em particular, você usa a função <mark>map</mark>.</p>
+
+  <p><mark>map</mark> permite criar uma cópia modificada de uma matriz. Isso é útil quando é preciso converter os valores de uma matriz para fins de exibição. Para exibir valores a um usuário, insira-os dentro de um elemento HTML. Esse é um trabalho ideal para <mark>map</mark>. Com <mark>map</mark>, é possível criar uma matriz que consiste em HTML contendo valores individuais na matriz para exibição.</p>
+
+  <h2>Use map.</h2>
+
+  <p><mark>map</mark> comporta-se de forma semelhante a um loop <mark>for...of</mark> ou a um método <mark>forEach</mark>. Ele é executado uma vez para cada item na matriz. A principal diferença é que ele gera uma nova matriz com os valores retornados pela função passada para <mark>map</mark>.</p>
+
+  <p>Vamos explorar <mark>map</mark> observando como você pode criar uma matriz com base em uma existente com os números ao quadrado. Comece criando uma matriz de números.</p>
+
+  <code>
+    JavaScript
+    
+    const numbers = [2, 5, 8];
+  </code>
+
+  <p>Use <mark>map.</mark> <mark>map</mark> aceita uma função com um único parâmetro. O parâmetro será definido como o valor de cada número na matriz original. Você criará uma função anônima para essa finalidade usando <mark>=></mark> ou a sintaxe de seta grossa.</p>
+
+  <code>
+    JavaScript
+    
+    const squared = numbers.map((number) => {
+      return number * number;
+    });
+  </code>
+
+  <p><mark>squared</mark> é uma nova matriz que contém os números originais ao quadrado. Se você os exibiu usando <mark>console.log</mark>, verá o seguinte:</p>
+
+  <code>
+    JavaScript
+    
+    console.log(squared);
+    // Output: [4, 25, 64]
+  </code>
+
+  <h2>Acessar o índice para gerar uma chave</h2>
+
+  <p>Quando exibir listas no React, defina uma chave para cada item. Isso permite que o React e você façam referência a itens individuais que estão sendo exibidos no momento e relacione-os de volta aos dados associados. A maneira mais comum de gerar uma chave é usar o índice do item na matriz.</p>
+
+  <p>Ao usar um loop <mark>for</mark>, você gera um índice inerentemente como parte da sintaxe. Ao usar <mark>map</mark>, você pode acessar o índice usando um segundo parâmetro na função de delegação. O segundo parâmetro é definido automaticamente como o índice atual.</p>
+
+  <code>
+    JavaScript
+    
+    const squared = numbers.map((number, index) => {
+      console.log(`Processing item ${index + 1}`);
+      return number * number;
+    });
+  </code>
+
+  <h2>map com React</h2>
+
+  <p>Conforme realçado em um exemplo anterior, você normalmente pode usar <mark>map</mark> para exibir uma lista de itens. A principal diferença é que, em vez de retornar números (como no exemplo), você retorna JSX. O React tem uma diretriz de que todos os itens exibidos devem ter uma chave. Caso os itens que você esteja exibindo não tenham uma chave natural, é comum usar o índice. Por exemplo, se você quiser exibir seus números ao quadrado em elementos <mark>div</mark>, poderá usar o seguinte:</p>
+
+  <code>
+    JavaScript
+    
+    const squared = numbers.map((number, index) =&gt {
+      return (
+        &ltdiv key={index}&gt{ number * number }&lt/div&gt
+      );
+    });
+  </code>
+
+  <p>Você pode usar <mark>squared</mark> da mesma maneira que outras variáveis em JSX. Se adicionou <mark>{ squared }</mark> ao JSX em outro lugar, ele renderizará a coleção de elementos <mark>div</mark> com seus números atualizados.</p>
+</body>
+
+</html>
