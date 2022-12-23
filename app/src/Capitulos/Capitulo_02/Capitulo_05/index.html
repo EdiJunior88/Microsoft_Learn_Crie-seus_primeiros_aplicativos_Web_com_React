@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Exibir dados da lista</title>
+</head>
+
+<body>
+  <h1>Exibir dados da lista</h1>
+
+  <p>Como o React se baseia em JSX, que é uma combinação de JavaScript e XML/HTML, você pode gerar HTML dinamicamente, totalmente integrado ao seu JavaScript.</p>
+
+  <h2>Cenário</h2>
+
+  <p>Você deseja exibir a lista de ingredientes, incluindo a adição de uma linha para todos os itens marcados como preparados. Faça isso criando um arquivo .css para o estilo e um componente para sua lista de ingredientes.</p>
+
+  <h2>Criar o estilo</h2>
+
+  <ol>
+    <li>Crie um arquivo em src chamado IngredientList.css.</li>
+    <li>Adicione o seguinte código a IngredientList.css:</li>
+
+    <code>
+      css
+      
+      .prepared {
+        text-decoration: line-through;
+      }
+    </code>
+  </ol>
+
+  <h2>Criar o componente</h2>
+
+  <p>Como o HTML é integrado ao JavaScript no JSX, você conta com JavaScript para lógica e looping. Para exibir um conjunto de itens contidos em uma matriz, você normalmente usa a função <mark>map</mark>. <mark>map</mark> foi projetado para criar uma nova matriz de itens com base no resultado de uma chamada de função. Se você quiser exibir uma lista de títulos em uma lista ordenada, use <mark>map</mark> e a sintaxe <mark>{ }</mark> que aprendeu anteriormente.</p>
+
+  <ol>
+    <li>Em src, crie um novo arquivo chamado IngredientList.jsx.</li>
+    <li>Logo abaixo da linha que mostra <mark>import ReactDOM from 'react-dom';</mark>, que deve ser a linha 3, adicione o código a seguir.</li>
+    <code>
+      JavaScript
+    
+      import './IngredientList.css'
+      import React from 'react';
+      function IngredientList(props) {
+        // Create the list items using map
+        const ingredientListItems = props.ingredients.map((ingredient, index) => {
+          return (
+            // Return the desired HTML for each ingredient
+            &ltli key={index} className={ ingredient.prepared ? 'prepared' : '' }&gt
+              { ingredient.name }
+            &lt/li&gt
+          );
+        });
+
+        // return the HTML for the component
+        // ingredientListItems will be rendered as li elements
+        return (
+          &ltul&gt
+            { ingredientListItems }
+          &lt/ul&gt
+        );
+      }
+    
+      export default IngredientList;
+    </code>
+  </ol>
+
+
+  <h2>Explore o código</h2>
+
+  <p>Comece criando uma matriz de cadeias de caracteres para conter a lista de <mark>ingredients</mark>. Você deseja que cada ingrediente seja exibido como um item de lista. Implemente isso usando <mark>map</mark>.</p>
+
+  <p>Como destacado anteriormente, <mark>map</mark> comporta-se de forma semelhante a uma instrução <mark>for each</mark>. Ele executa a função uma vez para cada item na matriz. Você deseja exibir uma coleção de elementos HTML <mark>li</mark>, portanto, retorna o JSX apropriado, com <mark>{ingredient}</mark> dentro de <mark>li</mark>.</p>
+
+  <h2>Atualizar App para usar IngredientList</h2>
+
+  <p>Vamos exibir sua lista de ingredientes!</p>
+
+  <ol>
+    <li>Abra <strong>src/app.jsx</strong>.</li>
+    <li>Após a linha <mark>TODO: Import IngredientList</mark>, adicione o seguinte código:</li>
+
+    <code>
+      JavaScript
+    
+      // TODO: Import IngredientList
+      import IngredientList from './IngredientList'
+    </code>
+
+    <li>Após a linha <mark>TODO: Add IngredientList component</mark>, adicione o seguinte JavaScript:</li>
+
+    <code>
+      JavaScript
+
+      {/* TODO: Add IngredientList component */}
+      &ltIngredientList ingredients={recipe.ingredients} /&gt
+      </code>
+  </ol>
+
+  <h2>Exibir os resultados</h2>
+
+  <p>Salve todos os arquivos. O navegador atualizará e exibirá automaticamente as novas atualizações. Observe a lista de ingredientes, com os dois últimos itens mostrados como preparados, com uma linha no meio deles.</p>
+
+  <img src="../../../imagens/capitulo-02-06.png" alt="">
+</body>
+
+</html>
