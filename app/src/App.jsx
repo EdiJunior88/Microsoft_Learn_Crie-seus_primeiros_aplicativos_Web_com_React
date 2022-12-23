@@ -6,6 +6,7 @@ import ListaIngredientes from "./ListaIngredientes";
 // TODO: Adicionar importação para o ReceitaTitulo
 import ReceitaTitulo from "./ReceitaTitulo";
 import "./index.css";
+import EtapasReceita from "./EtapasReceita";
 
 function App() {
   // TODO: Adicionar objeto de receita
@@ -23,6 +24,26 @@ function App() {
       { nome: "Sal", preparado: true },
       { nome: "Pimenta", preparado: true },
     ],
+
+    etapas: [
+      { parte: "Adicione as batatas cortadas a uma panela com água e sal." },
+      { parte: "Leve a panela para ferver." },
+      {
+        parte:
+          "Ferva as batatas até ficarem macias, por cerca de 15 a 20 minutos.",
+      },
+      { parte: "Coe as batatas." },
+      { parte: "Coloque-as novamente na panela." },
+      {
+        parte:
+          "Adicione a manteiga, o creme de leite, o sal e a pimenta a gosto.",
+      },
+      { parte: "Amasse as batatas." },
+      {
+        parte:
+          "Tempere novamente e adicione a manteiga e o creme de leite conforme desejado.",
+      },
+    ],
   };
 
   return (
@@ -32,6 +53,7 @@ function App() {
       <ReceitaTitulo titulo={receita.titulo} feedback={receita.feedback} />
       {/* TODO: Adicionar componente ListaIngredientes */}
       <ListaIngredientes ingredientes={receita.ingredientes} />
+      <EtapasReceita etapas={receita.etapas} />
     </article>
   );
 }
