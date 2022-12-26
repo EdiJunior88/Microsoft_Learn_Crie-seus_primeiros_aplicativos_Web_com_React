@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Trabalhar com eventos do usuário</title>
+</head>
+
+<body>
+  <h1>Trabalhar com eventos do usuário</h1>
+
+  <p>Os eventos permitem que você execute o código em resposta às ações do usuário em seu aplicativo. Como o JSX é criado em JavaScript, XML e HTML, a adição de ouvintes de eventos parece relativamente familiar.</p>
+
+  <p>Você adiciona atributos ao HTML para indicar o nome do evento que deseja manipular. Se você quiser usar <mark>alert</mark> para exibir uma mensagem quando um botão for selecionado, por exemplo, pode usar o seguinte código:</p>
+
+  <code>
+    JavaScript
+    
+    class Demo extends React.Component {
+      render() {
+        &ltbutton onClick={ () =&gt alert('Hello, world!') }&gtClick me!&lt/button&gt
+      }
+    }
+  </code>
+
+  <p>Como você pode suspeitar, também podemos criar uma função para escutar um evento. Adicionamos a função ao nosso componente. Em seguida, a chamamos usando a mesma sintaxe usada para <mark>alert</mark>.</p>
+
+  <code>
+    JavaScript
+    
+    class Demo extends React.Component {
+      displayMessage() {
+        alert('Hello, world!');
+      }
+
+      render() {
+       &ltbutton onClick={ () =&gt displayMessage() }&gtClick me!&lt/button&gt
+      }
+    }
+  </code>
+
+  <p>Também podemos passar parâmetros para o manipulador de eventos conforme necessário.</p>
+
+  <code>
+    JavaScript
+    
+    class Demo extends React.Component {
+      displayMessage(message) {
+        alert(message);
+      }
+
+      render() {
+        &ltbutton onClick={ () =&gt displayMessage('Clicked button!') }&gtClick me!&lt/button>
+      }
+    }
+  </code>
+</body>
+
+</html>
