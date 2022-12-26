@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // TODO: Importar ListaIngredientes
 import ListaIngredientes from "./ListaIngredientes";
@@ -49,6 +49,9 @@ function App() {
   //TODO: Criar estado de receita
   const [receita, setReceita] = useState(receitaInicial);
 
+  //TODO: Adicionar nova propriedade de estado
+  const [preparado, setPreparado] = useState(false);
+
   //TODO: Criar ouvinte de evento de ingredienteClick
   function ingredienteClique(index) {
     const atualizarReceita = { ...receita };
@@ -58,17 +61,27 @@ function App() {
     setReceita(atualizarReceita);
   }
 
+  //TODO: Adicione o gancho de efeito
+  useEffect(() => {
+    setPreparado(receita.ingredientes.every((i) => i.preparado));
+  }, [receita]);
+
   return (
     <article>
       <h1>Gerenciador de Receitas</h1>
       {/* TODO: Adicionar componente ReceitaTitulo */}
       {/* TODO: Passar metadados da receita para RecipeTitle */}
       <ReceitaTitulo titulo={receita.titulo} feedback={receita.feedback} />
+
       {/* TODO: Adicionar componente ListaIngredientes */}
       <ListaIngredientes
         ingredientes={receita.ingredientes}
         onClick={ingredienteClique}
       />
+
+      {/* TODO: Adicionar a exibição do trabalho de preparação */}
+      {preparado ? <h2>Os ingredientes estão preparados!</h2> : <h2>Apenas continue cortando.</h2>}
+
       <EtapasReceita etapas={receita.etapas} />
     </article>
   );

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Adicionar ganchos</title>
+</head>
+
+<body>
+  <h1>Adicionar ganchos</h1>
+
+  <p>Você pode usar o gancho de efeito para acompanhar o estado do seu aplicativo e executar o código em resposta às atualizações. Registramos a função que desejamos executar em resposta às alterações usando <mark>useEffect</mark>.</p>
+
+  <h2>Cenário</h2>
+
+  <p>Nosso aplicativo permite que o usuário toque em itens individuais para marcá-los como preparados. Se alguns itens ainda não estiverem preparados, desejamos exibir a mensagem Apenas continue a trabalhar. Quando todos os itens forem concluídos, queremos exibir Trabalho de preparação concluído!.</p>
+
+  <p>Vamos configurar esse comportamento adicionando um novo objeto de estado. Atualizaremos o objeto de nosso gancho de efeito.</p>
+
+  <div>
+    <p>Importante</p>
+
+    <p>Em nosso exemplo, modificamos o estado dentro de <mark>useEffect</mark>. Por padrão, o <mark>useEffect</mark> é executado sempre que qualquer objeto com estado é modificado. Esse comportamento pode criar um loop infinito. Nesse loop, modificamos o estado e o gancho é executado, o que modifica o estado, que executa o gancho e assim por diante.</p>
+
+    <p>Para evitar o loop infinito, podemos usar o parâmetro de dependência em <mark>useEffect</mark> para examinar apenas um objeto. Faremos isso quando criarmos nosso código.</p>
+  </div>
+
+  <h2>Adicionar a nova propriedade de estado</h2>
+
+  <ol>
+    <li>Abra o arquivo <i>App.jsx</i>.</li>
+    <li>Para adicionar a nova propriedade de estado, insira o código a seguir abaixo da linha <mark>TODO: Add new state property</mark>.</li>
+
+    <code>
+      JavaScript
+
+      // TODO: Add new state property
+      const [ prepared, setPrepared ] = useState(false);
+    </code>
+  </ol>
+
+  <h2>Adicionar o ouvinte do gancho de efeito</h2>
+
+  <p>Para adicionar o ouvinte de gancho de efeito, insira o código a seguir abaixo da linha <mark>TODO: Add the effect hook</mark>.</p>
+
+  <code>
+    JavaScript
+
+    // TODO: Add the effect hook
+    useEffect(() => {
+      setPrepared(recipe.ingredients.every(i => i.prepared));
+    }, [recipe]);
+  </code>
+
+  <p>O código usa <mark>setPrepared</mark> para atualizar <mark>prepared</mark>. Ele usa o método <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/every/">every</a>, que retorna um valor booliano com base em cada item que corresponde aos critérios especificados. Em nosso caso, estamos verificando se cada item está preparado. Se não estiver, o método retornará false.</p>
+
+  <p>O segundo parâmetro em <mark>useEffect</mark> está definido como <mark>[recipe]</mark>. Essa configuração fornece a dependência para garantir que nosso código seja executado somente quando o objeto <mark>recipe</mark> for alterado.</p>
+
+  <h2>Adicionar a exibição</h2>
+
+  <p>Agora exiba a mensagem para o usuário se o preparo estiver concluído. Para fazer isso, adicione o código a seguir abaixo da linha <mark>TODO: Add the prep work display</mark>.</p>
+
+  <code>
+    JavaScript
+
+    {/* TODO: Add the prep work display */}
+    { prepared ? &lth2&gtPrep work done!&lt/h2&gt : &lth2&gtJust keep chopping.&lt/h2&gt}
+  </code>
+
+  <p>Observamos o objeto <mark>prepared</mark>. Se for verdadeiro, mostraremos o <strong>Trabalho de preparação</strong> realizado!. Caso contrário, exibiremos Apenas continue a trabalhar.</p>
+
+  <h2>Testar a página</h2>
+
+  <ol>
+    <li>Salve todos os arquivos.</li>
+    <li>Volte ao seu navegador e atualize a página.</li>
+    <li>Selecione os ingredientes para marcar todos como preparados. (Todos eles devem ser riscados da lista.) O texto é atualizado exibido na parte inferior da página.</li>
+  </ol>
+</body>
+
+</html>
