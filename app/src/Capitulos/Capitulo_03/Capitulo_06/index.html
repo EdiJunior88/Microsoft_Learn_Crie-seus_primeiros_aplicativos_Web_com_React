@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Atualizar estado</title>
+</head>
+
+<body>
+  <h1>Atualizar estado</h1>
+
+  <p>Como o estado no React é imutável, para modificar o valor de um objeto com estado, o substituímos por um novo objeto. Portanto, evitamos uma classe inteira de bugs em que um objeto pode estar em um estado inválido porque está sendo editado.</p>
+
+  <h2>Copiar objetos</h2>
+
+  <p>Tipos primitivos, como valores boolianos ou números, são objetos baseados em valor em oposição a objetos de referência. Portanto, qualquer alteração substitui automaticamente o objeto inteiro.</p>
+
+  <p>As cadeias de caracteres se comportam de maneira semelhante porque são imutáveis. Modificamos uma cadeia de caracteres substituindo-a por um novo valor.</p>
+
+  <code>
+    JavaScript
+    
+    let message = 'Hello, ';
+    message = message + 'world!';
+  </code>
+  
+  <p>Quando trabalhamos com um objeto, precisamos criar uma instância dele para garantir a imutabilidade. A sintaxe mais comum para criar uma cópia de um objeto é a <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Spread_syntax/">sintaxe de espalhamento</a>, também chamada de <i>operador de espalhamento</i>.</p>
+
+  <code>
+    JavaScript
+    
+    let message = {
+      text: 'Hello, world',
+      color: 'red'
+    }
+
+    let messageCopy = { ...message };
+  </code>
+
+  <h2>Modificar propriedades individuais</h2>
+
+  <p>Normalmente, precisamos atualizar apenas um subconjunto de propriedades de um objeto. Criar uma cópia e modificar cada propriedade se tornaria entediante.</p>
+
+  <p>Na sintaxe anterior, observe que criamos um objeto JSON usando chaves (<mark>{ }</mark>). O operador de espalhamento pode ser usado para criar uma versão inicial do novo objeto. Ele nos permite especificar valores atualizados para determinadas propriedades. Se tivermos um novo valor para <mark>color</mark>, mas quisermos manter o texto, por exemplo, poderemos usar o código a seguir.</p>
+
+  <code>
+    JavaScript
+    
+    let message = {
+      text: 'Hello, world',
+      color: 'red'
+    }
+
+    let messageCopy = {
+      ...message,
+      color: 'green'
+    };
+  </code>
+
+  <p>Aqui, <mark>text</mark> mantém o valor original. O valor <mark>color</mark> é atualizado para verde.</p>
+
+  <code>
+    JavaScript
+    
+    // new object
+    {
+      text: 'Hello, world',
+      color: 'green'
+    }
+  </code>
+</body>
+
+</html>
