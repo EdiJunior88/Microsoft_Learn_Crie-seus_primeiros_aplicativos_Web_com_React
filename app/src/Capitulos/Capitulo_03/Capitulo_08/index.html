@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Ganchos</title>
+</head>
+
+<body>
+  <h1>Ganchos</h1>
+
+  <p>Os ganchos são um padrão comum em estruturas em que os valores mudam ou outros eventos ocorrem. De uma forma centralizada, eles injetam o seu código para ser executado quando o estado é alterado ou em outros estágios no ciclo de vida de um aplicativo.</p>
+
+  <h2>Gancho de efeito</h2>
+
+  <p>Nesta unidade, vamos nos concentrar no gancho de efeito. Esse gancho é gerado sempre que o valor de estado é definido. Ele é gerado quando o valor inicial e todas as atualizações subsequentes são definidas.</p>
+
+  <p>O gancho de efeito permite que você execute o código em resposta à configuração do valor. O código executado pode ter efeitos colaterais, portanto, você pode atualizar valores conforme necessário.</p>
+
+  <h2>Quando usar o gancho de efeito</h2>
+
+  <p>Você pode usar o gancho de efeito sempre que precisar centralizar o código para responder a uma alteração de estado. Imagine um formulário complexo que inclui muitos valores. Normalmente, você deve desabilitar o botão Enviar até que os dados que precisam ser enviados ao servidor estejam em um estado válido. Digamos que você tenha eventos para valores individuais que são alterados nos dados. Depois que um usuário seleciona um país em seu aplicativo, você precisa recuperar uma lista de províncias do servidor.</p>
+
+  <p>Você não quer que cada ouvinte de eventos examine o estado para ver se os dados estão prontos para serem enviados para o servidor. Essa configuração seria ineficiente. Em vez disso, você pode usar um gancho de efeito. Um gancho de efeito pode criar uma função que examina os dados. Se os dados estiverem em um estado válido, ele poderá habilitar o botão Enviar.</p>
+
+  <h2>useEffect</h2>
+
+  <p>Para registrar um ouvinte para o gancho de efeito, use <mark>useEffect</mark>. <mark>useEffect</mark> aceita que uma função sem parâmetro seja executada quando o estado é alterado.</p>
+
+  <code>
+    JavaScript
+    
+    useEffect(() => {
+      // code goes here
+    });
+  </code>
+
+  <p>Por padrão, o <mark>useEffect</mark> é executado sempre que o estado é alterado em qualquer objeto com estado. Você pode fornecer uma dependência para habilitar o gancho apenas para um grupo específico de objetos.</p>
+
+  <code>
+    JavaScript
+    
+    useEffect(() => {
+      // code goes here
+    }, [ someStatefulObject ]);
+  </code>
+</body>
+
+</html>
