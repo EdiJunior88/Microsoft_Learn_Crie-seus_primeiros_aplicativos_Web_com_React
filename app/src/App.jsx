@@ -49,18 +49,27 @@ function App() {
   //TODO: Criar estado de receita
   const [receita, setReceita] = useState(receitaInicial);
 
+  //TODO: Criar ouvinte de evento de ingredienteClick
+  function ingredienteClique(index) {
+    const atualizarReceita = { ...receita };
+
+    atualizarReceita.ingredientes[index].preparado =
+      !atualizarReceita.ingredientes[index].preparado;
+    setReceita(atualizarReceita);
+  }
+
   return (
     <article>
       <h1>Gerenciador de Receitas</h1>
       {/* TODO: Adicionar componente ReceitaTitulo */}
       {/* TODO: Passar metadados da receita para RecipeTitle */}
-      <ReceitaTitulo
-        titulo={receita.titulo}
-        feedback={receita.feedback}
-      />
+      <ReceitaTitulo titulo={receita.titulo} feedback={receita.feedback} />
       {/* TODO: Adicionar componente ListaIngredientes */}
-      <ListaIngredientes ingredientes={receitaInicial.ingredientes} />
-      <EtapasReceita etapas={receitaInicial.etapas} />
+      <ListaIngredientes
+        ingredientes={receita.ingredientes}
+        onClick={ingredienteClique}
+      />
+      <EtapasReceita etapas={receita.etapas} />
     </article>
   );
 }

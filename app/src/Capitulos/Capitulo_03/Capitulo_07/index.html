@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Adicionar manipuladores de eventos e atualizar estado</title>
+</head>
+
+<body>
+  <h1>Adicionar manipuladores de eventos e atualizar estado</h1>
+
+  <p>O estado do armazenamento no componente principal do nosso aplicativo (<mark>App</mark>) nos permite ler os valores atuais de todas as propriedades importantes. Não precisamos interagir com cada componente. Também podemos centralizar eventos, garantindo que os dados sejam modificados em apenas uma localização.</p>
+
+  <h2>Cenário</h2>
+
+  <p>Queremos permitir que os usuários do aplicativo toquem em um item na lista de ingredientes quando o concluírem. Marcaremos o item como <mark>prepared</mark> no estado. Essa configuração será refletida no aplicativo. Quando os valores são alterados, o componente detecta as atualizações e reavalia conforme necessário.</p>
+
+  <h2>Adicionar o método para eventos de clique</h2>
+
+  <ol>
+    <li>Abra o arquivo <i>App.jsx</i>.</li>
+    <li>Crie um ouvinte de evento chamado <mark>ingredientClick</mark>. Adicione-o sob o comentário que lê, <mark>TODO: Create ingredientClick event listener</mark>.</li>
+
+    <code>
+      JavaScript
+      
+      function ingredientClick(index) {
+        const updatedRecipe = { ... recipe };
+
+        updatedRecipe.ingredients[index].prepared = !updatedRecipe.ingredients[index].prepared;
+        setRecipe(updatedRecipe);
+      }
+      
+    </code>
+
+    <p>A lógica começa criando uma cópia de <mark>recipe</mark> usando o operador de espalhamento. Em seguida, recuperamos o <mark>ingredient</mark> atualizado usando o <mark>index</mark>. Invertemos o valor de <mark>prepared</mark>. Por fim, substituímos o objeto recipe no estado usando <mark>setRecipe</mark>.</p>
+
+    <li>Adicione <mark>IngredientList</mark>, um componente que exibe os ingredientes de uma receita. Para fazer isso, adicione o código a seguir após o comentário <mark>TODO: Pass ingredients and event listener to IngredientList</mark>.</li>
+
+    <code>
+      jsx
+      
+      &ltIngredientList ingredients={recipe.ingredients} onClick={ ingredientClick } /&gt
+    </code>
+
+    <p>Observe que podemos passar a função <mark>ingredientClick</mark>, pois passaremos qualquer outra prop para um componente.</p>
+  </ol>
+
+  <h2>Atualizar IngredientList para usar o ouvinte de eventos</h2>
+
+  <p>No React, as propriedades (ou props) podem ser qualquer tipo de JavaScript, incluindo funções. Portanto, podemos configurar um manipulador de eventos como uma prop. Essa configuração nos permite centralizar a manipulação de eventos.</p>
+
+  <p>Vamos atualizar <mark>IngredientList</mark> para usar a função <mark>ingredientClick</mark> que criamos anteriormente:</p>
+
+  <ol>
+    <li>Abra o arquivo <i>IngredientList.jsx</i>. Observe o componente existente. Usaremos esse componente para mostrar como usar eventos.</li>
+    <li>Abaixo do comentário <mark>TODO: Add onClick event</mark>, adicione o JSX a seguir.</li>
+
+    <code>
+      jsx
+      
+      onClick={ () =&gt props.onClick(index) }
+    </code>
+
+    <p>Observe que podemos passar um parâmetro para a função <mark>onClick</mark> de prop.</p>
+  </ol>
+
+  <div>
+    <p>Observação</p>
+
+    <p>Não há motivo específico para termos usado o nome <mark>onClick</mark> nas <mark>props</mark> do componente. Ele é apenas o nome escolhido. Ele foi passado anteriormente do arquivo <i>App.jsx</i>.</p>
+  </div>
+
+  <h2>Testar a página</h2>
+
+  <ol>
+    <li>Salve todos os arquivos.</li>
+    <li>Volte para o navegador e atualize a página. Se você selecionar os ingredientes, o status de linha deverá ser alterado. Ele é alterado porque a propriedade <mark>prepared</mark> está sendo atualizada.</li>
+  </ol>
+</body>
+
+</html>
