@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Adicionar o estado a um aplicativo</title>
+</head>
+
+<body>
+  <h1>Adicionar o estado a um aplicativo</h1>
+
+  <p>O React gerencia o estado de algumas formas. Nós nos concentraremos em uma das principais formas, <i>ganchos</i> do React.</p>
+
+  <p>Um <i>gancho</i> é um mecanismo que permite que você acesse os mecanismos internos do React. Você pode usar os ganchos para executar código quando algo mudar no React. Ou usá-lo para registrar algo com o React, como o estado. Quando criamos o estado usando o gancho <mark>useState</mark>, por exemplo, obtemos o objeto de estado e uma função de atualizador para atualizar o valor do gancho.</p>
+
+  <h2>Cenário</h2>
+
+  <p>Uma técnica comum que muitos usam é o <i>mise en place</i>, que é "colocar no lugar" em francês. Os cozinheiros garantem que todos os itens estejam arrumados antes de começarem a cozinhar.</p>
+
+  <p>Em nosso aplicativo de receitas, queremos permitir que os usuários toquem nos ingredientes para marcá-los como preparados. Começaremos criando o estado e passando as informações de exibição para o componente. Na próxima unidade, exploraremos como lidar com os eventos.</p>
+
+  <h2>Adicionar estado</h2>
+
+  <p>Qualquer objeto ou tipo de dados JavaScript pode ser registrado como com estado no React. A função usada para registrar o objeto é <mark>useState</mark>. A função <mark>useState</mark> especifica o valor inicial. Ela retorna o objeto com estado recém-criado e outra função que você pode usar para atualizar o valor.</p>
+
+  <div>
+    <p>Observação</p>
+
+    <p>No React, o estado é imutável, o que significa que ele não pode ser alterado. Para modificar o valor de um objeto com estado, substitua-o por uma nova instância que contenha os valores apropriados. A função retornada por useState gerencia esse processo.</p>
+  </div>
+
+  <ol>
+    <li>No VS Code Explorer, expanda a pasta src e abra o arquivo <i>App.jsx</i>. Observe o objeto <mark>initialRecipe</mark> existente. Usaremos esse objeto como o valor padrão para nosso <mark>recipe</mark> com estado.</li>
+    <li>Crie o objeto de estado <mark>recipe</mark> e a função <mark>setRecipe</mark> de <mark>useState</mark>. Para fazer isso, adicione o código a seguir após a linha <mark>TODO: Create recipe state</mark>.</li>
+
+    <code>
+      JavaScript
+      
+      const [ recipe, setRecipe ] = useState(initialRecipe);
+    </code>
+
+    <p>Nesse código, <mark>recipe</mark> é o objeto com estado. A função <mark>setRecipe</mark> será usada para substituir <mark>recipe</mark> por novas versões.</p>
+
+    <li>Podemos usar <mark>recipe</mark> para passar as props para os componentes. No código a seguir, o componente <mark>RecipeTitle</mark> será usado para exibir o título e os comentários. Passe os valores <mark>title</mark> e <mark>feedback</mark> para <mark>RecipeTitle</mark> adicionando o código a seguir após o comentário <mark>TODO: Pass recipe metadata to RecipeTitle</mark>.</li>
+
+    <code>
+      JavaScript
+      
+      &ltRecipeTitle title={recipe.title} feedback={recipe.feedback} /&gt
+    </code>
+
+    <li>Abra o arquivo <i>RecipeTitle.jsx</i>. Observe o componente existente que exibe as props <mark>title</mark> e <mark>feedback</mark>.</li>
+  </ol>
+
+  <h2>Testar a página</h2>
+
+  <ol>
+    <li>Salve todos os arquivos.</li>
+    <li>Volte para o navegador e atualize-o. Agora você deve ver os metadados da receita exibidos na página.</li>
+  </ol>
+
+  <img src="../../../imagens/capitulo-03-04.png" alt="">
+</body>
+
+</html>

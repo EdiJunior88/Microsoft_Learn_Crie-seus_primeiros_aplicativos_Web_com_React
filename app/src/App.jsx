@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // TODO: Importar ListaIngredientes
 import ListaIngredientes from "./ListaIngredientes";
@@ -10,7 +10,7 @@ import EtapasReceita from "./EtapasReceita";
 
 function App() {
   // TODO: Adicionar objeto de receita
-  const receita = {
+  const receitaInicial = {
     titulo: "Purê de batatas",
     feedback: {
       nota: 4.8,
@@ -46,14 +46,21 @@ function App() {
     ],
   };
 
+  //TODO: Criar estado de receita
+  const [receita, setReceita] = useState(receitaInicial);
+
   return (
     <article>
       <h1>Gerenciador de Receitas</h1>
       {/* TODO: Adicionar componente ReceitaTitulo */}
-      <ReceitaTitulo titulo={receita.titulo} feedback={receita.feedback} />
+      {/* TODO: Passar metadados da receita para RecipeTitle */}
+      <ReceitaTitulo
+        titulo={receita.titulo}
+        feedback={receita.feedback}
+      />
       {/* TODO: Adicionar componente ListaIngredientes */}
-      <ListaIngredientes ingredientes={receita.ingredientes} />
-      <EtapasReceita etapas={receita.etapas} />
+      <ListaIngredientes ingredientes={receitaInicial.ingredientes} />
+      <EtapasReceita etapas={receitaInicial.etapas} />
     </article>
   );
 }
