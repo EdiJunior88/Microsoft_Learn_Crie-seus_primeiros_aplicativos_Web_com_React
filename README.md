@@ -7,7 +7,7 @@
 
 <hr>
 
-<strong>Projeto do curso</strong>: <a href="https://microsoft-learn-react.netlify.app/" target="_blank"></a>
+<strong>Projeto do curso</strong>: <a href="https://microsoft-learn-react.netlify.app/" target="_blank">https://microsoft-learn-react.netlify.app/</a>
 
 <hr>
 
