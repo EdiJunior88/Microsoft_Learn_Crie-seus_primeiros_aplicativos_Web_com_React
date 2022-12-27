@@ -7,6 +7,23 @@
 
 <hr>
 
+<strong>Projeto do curso</strong>: <a href="https://microsoft-learn-react.netlify.app/" target="_blank"></a>
+
+<hr>
+
+<h2>Sobre o projeto do curso</h2>
+
+<ul>
+  <li>Aprender as noções básicas do React</li>
+  <li>Utilização do HTML / CSS em conjunto com o JS / JSX no React</li>
+  <li>Criação de componentes</li>
+  <li>Adição de vários componentes Filhos no componente Pai</li>
+  <li>Estilização do CSS conforme a mudança de estado do componente</li>
+  <li>"Check Mark" para selecionar ou desselecionar conforme o clique alterando o estado dos elementos</li>
+</ul>
+
+<hr>
+
 <h3>Objetivos de aprendizagem</h3>
 
 <ul>
@@ -28,4 +45,4 @@
 <hr>
 
 <h4><strong>Curso:</strong> :green_book: :books: 3 módulos</h4>
-<h4><strong>Status do Curso:</strong> 💬 Estudando</h4>
+<h4><b>Status do Curso:</b> ✅ Concluído</h4>
