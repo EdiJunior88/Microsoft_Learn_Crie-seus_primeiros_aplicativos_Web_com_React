@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // TODO: Importar ListaIngredientes
 import ListaIngredientes from "./ListaIngredientes";
@@ -80,7 +80,11 @@ function App() {
       />
 
       {/* TODO: Adicionar a exibição do trabalho de preparação */}
-      {preparado ? <h2>Os ingredientes estão preparados!</h2> : <h2>Apenas continue cortando.</h2>}
+      {preparado ? (
+        <h2>Os ingredientes estão preparados!</h2>
+      ) : (
+        <h2>Apenas continue cortando.</h2>
+      )}
 
       <EtapasReceita etapas={receita.etapas} />
     </article>
