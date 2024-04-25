@@ -7,7 +7,7 @@
 
 <hr>
 
-<strong>Link do Projeto</strong>: <a href="https://microsoft-learn-react.netlify.app/" target="_blank">https://microsoft-learn-react.netlify.app/</a>
+<strong>Link do Projeto</strong>: <a href="https://edijunior88-microsoftlearn-react.vercel.app/" target="_blank">https://edijunior88-microsoftlearn-react.vercel.app/</a>
 
 <hr>
 
@@ -48,7 +48,7 @@ Para ver todas as tecnologias [clique aqui](/techstack.md)
 
 <h3>Status do deploy</h3>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a3092528-2ef6-42e3-9620-dbd26ddcb758/deploy-status)](https://app.netlify.com/sites/microsoft-learn-react/deploys)
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/edijunior88-microsoftlearn-react?style=for-the-badge)
 
 <hr>
 
